@@ -4,7 +4,7 @@
 """
 
 """
-@Author : Pierre VAUDRY
+@Author : Pierre VAUDRY ; Enora GUILLAUME ; Safa HERELLI ; Jessy JESSY
 IPSA Aero2 - Prim1
 Release date: 15/11/2021
 
@@ -13,6 +13,9 @@ Programme principal.
 
 [Functions]:
     fonction_1() - summary
+    
+[Class]:
+
 
 [Global variable]:
     {}
@@ -26,7 +29,15 @@ from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
 from PIL import Image, ImageTk
-import page1 as ex1
+import lib.page1 as Ep
+import lib.page2 as Fp
+import lib.page3 as GP
+import lib.page4 as VDW
+import lib.page5 as Iso
+import lib.page6 as PT
+import lib.page7 as Amag
+import lib.page8 as AmagP
+import lib.page9 as EqR
 
 # --------- Class and process --------- #
 
@@ -129,8 +140,7 @@ class MainApp:
         """
         [summary]
         initiate class
-        """        
-
+        """       
         # Generate the main page with sitting
         self.root = tk.Tk()
         self.root.wm_attributes('-transparentcolor', 'red')
@@ -152,8 +162,11 @@ class MainApp:
         # Background image
         self.image = PhotoImage(file='./img/HomeScreen.png')
         self.canvas = Canvas(self.root, width=self.w, height=self.h)
-        self.canvas.place(y=-45, x=-1, relwidth=3, relheight=2)
+        self.canvas.place(y=-45, x=385, relwidth=0.75, relheight=2)
         self.canvas.create_image(0, 0, image=self.image, anchor=NW, )
+        
+        self.banner = Frame(self.root, bg='#ffffff', cursor='circle')
+        self.banner.place(y=0,x=0,relwidth=0.25, relheight=1)
 
         self.root.iconbitmap('./img/icon.ico')
         self.widgets()
@@ -168,21 +181,34 @@ class MainApp:
 
         :return:
         """
-        
         # Button of main functionnalities 
-        tk.Button(self.canvas, text='Exo 1',
-            command=lambda: ex1.exercice1(self.root),
-                bg="lightgrey").place(relx=0.1,
-                    rely=0.2, relheight=0.03, relwidth=0.1)
-        tk.Button(self.canvas, text='Exo2',
-                  command=lambda: None,
-                  bg="lightgrey").place(relx=0.1, rely=0.3,
-                  relheight=0.03, relwidth=0.1)
-        tk.Button(self.canvas, text='Exo 3',
-                                    command=lambda: None, 
-                                    bg="lightgrey").place(
-                                        relx=0.1, rely=0.4, relheight=0.03,
-                                        relwidth=0.1)
+        tk.Button(self.banner, text="Energie d'interaction entre les molecule Ep",
+                  command=lambda: Ep.EnergieInteraction(self.root),
+                  bg="white").place(relx=0.1, rely=0.05, relheight=0.05, relwidth=0.8)
+        tk.Button(self.banner, text="Force machin", command=lambda: Fp.ForceInteraction(self.root),
+                  bg="white").place(relx=0.1, rely=0.1, relheight=0.05, relwidth=0.8)
+        tk.Button(self.banner, text="Gaz parfait", command=lambda: GP.GazParfait(self.root),
+                  bg="white").place( relx=0.1, rely=0.15, relheight=0.05,
+                                    relwidth=0.8)
+        tk.Button(self.banner, text="Van Der Waals", command=lambda: VDW.VanDerWaals(self.root),
+                  bg="white").place( relx=0.1, rely=0.2, relheight=0.05,
+                                    relwidth=0.8)
+        tk.Button(self.banner, text="Isotherme", command=lambda: Iso.Isotherme(self.root),
+                  bg="white").place( relx=0.1, rely=0.25, relheight=0.05,
+                                    relwidth=0.8)
+        tk.Button(self.banner, text="Pression T", command=lambda: PT.Pression_T(self.root),
+                  bg="white").place( relx=0.1, rely=0.3, relheight=0.05,
+                                    relwidth=0.8)
+        tk.Button(self.banner, text="Amagat", command=lambda: Amag.Amagat(self.root),
+                  bg="white").place( relx=0.1, rely=0.3, relheight=0.05,
+                                    relwidth=0.8)          
+        tk.Button(self.banner, text="Amagat P", command=lambda: AmagP.AmagatP(self.root),
+                  bg="white").place( relx=0.1, rely=0.35, relheight=0.05,
+                                    relwidth=0.8) 
+        tk.Button(self.banner, text="EquReduite", command=lambda: EqR.EquReduite(self.root),
+                  bg="white").place( relx=0.1, rely=0.35, relheight=0.05,
+                                    relwidth=0.8) 
+        
 
 # ------ Run & Start server program ------ #
 
