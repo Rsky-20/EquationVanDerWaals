@@ -29,6 +29,7 @@ from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
 from PIL import Image, ImageTk
+import pyscreenshot as ImageGrab
 import lib.page1 as Ep
 import lib.page2 as Fp
 import lib.page3 as GP
@@ -38,6 +39,7 @@ import lib.page6 as PT
 import lib.page7 as Amag
 import lib.page8 as AmagP
 import lib.page9 as EqR
+import lib.DocumentationHelperAbout as DHA
 
 # --------- Class and process --------- #
 
@@ -73,10 +75,10 @@ class ToolBar:
 
         menu1 = Menu(menubar, tearoff=0)
         menu1.add_command(
-            label="Impr. window", command=0)
+            label="Impr. window",
+            command=None) #ImageGrab.grab(backend="mss", childprocess=False).save('screen_impr.png')
         menu1.add_separator()
-        menu1.add_command(label="Sauvegarder", command=self.sauvegarde)
-        menu1.add_command(label="Quitter & Sauvegarder", command=self.quit_app)
+        menu1.add_command(label="Quitter ", command=self.quit_app)
         menubar.add_cascade(label="Fichier", menu=menu1)
 
         menu2 = Menu(menubar, tearoff=0)
@@ -93,24 +95,21 @@ class ToolBar:
 
         menu3 = Menu(menubar, tearoff=0)
         menu3.add_command(label="Bienvenue",
-                          command=lambda: None)
+                          command=lambda: DHA.BienvenuePage(self.root))
         menu3.add_command(label="A propos",
                           command=lambda: messagebox.showinfo(title="A propos !",
-                                                              message=None))
+                                                              message=DHA.Apropos))
         menu3.add_command(label="? Aide ?",
-                          command=lambda: None)
+                          command=lambda: DHA.HelpPage(self.root))
         menubar.add_cascade(label="Aide", menu=menu3)
 
         self.root.config(menu=menubar)
-        
-    def sauvegarde(self):
-        None
         
 
     def quit_app(self):
         """
         [summary]
-        a simple function to stop and save programme
+        a simple function to stop
         """        
         
         MessageBox = """
@@ -146,7 +145,7 @@ class MainApp:
         self.root.wm_attributes('-transparentcolor', 'red')
         self.w = self.root.winfo_screenwidth()
         self.h = self.root.winfo_screenheight()
-        self.root.title("Gestionnaire Automobile - Lock'Auto")
+        self.root.title("ThermoSim - Equation d'Etat de Van-Der-Waals")
         self.screen = str(self.w)+"x"+str(self.h)
         print(self.screen)
         self.root.geometry(self.screen)
@@ -162,7 +161,7 @@ class MainApp:
         # Background image
         self.image = PhotoImage(file='./img/HomeScreen.png')
         self.canvas = Canvas(self.root, width=self.w, height=self.h)
-        self.canvas.place(y=-45, x=385, relwidth=0.75, relheight=2)
+        self.canvas.place(y=-45, x=0, relwidth=1, relheight=2)
         self.canvas.create_image(0, 0, image=self.image, anchor=NW, )
         
         self.banner = Frame(self.root, bg='#ffffff', cursor='circle')
@@ -185,7 +184,7 @@ class MainApp:
         tk.Button(self.banner, text="Energie d'interaction entre les molecule Ep",
                   command=lambda: Ep.EnergieInteraction(self.root),
                   bg="white").place(relx=0.1, rely=0.05, relheight=0.05, relwidth=0.8)
-        tk.Button(self.banner, text="Force machin", command=lambda: Fp.ForceInteraction(self.root),
+        tk.Button(self.banner, text="Force d'interaction", command=lambda: Fp.ForceInteraction(self.root),
                   bg="white").place(relx=0.1, rely=0.1, relheight=0.05, relwidth=0.8)
         tk.Button(self.banner, text="Gaz parfait", command=lambda: GP.GazParfait(self.root),
                   bg="white").place( relx=0.1, rely=0.15, relheight=0.05,
@@ -205,7 +204,7 @@ class MainApp:
         tk.Button(self.banner, text="Amagat P", command=lambda: AmagP.AmagatP(self.root),
                   bg="white").place( relx=0.1, rely=0.35, relheight=0.05,
                                     relwidth=0.8) 
-        tk.Button(self.banner, text="EquReduite", command=lambda: EqR.EquReduite(self.root),
+        tk.Button(self.banner, text="Equation Reduite", command=lambda: EqR.EquReduite(self.root),
                   bg="white").place( relx=0.1, rely=0.35, relheight=0.05,
                                     relwidth=0.8) 
         
