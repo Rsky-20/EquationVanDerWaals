@@ -56,6 +56,7 @@ def Isotherme(master):
     ax.set_xlabel(r"$V_m\;(m^3.mol^{-1})$")
     ax.set_ylabel(r"$P\;(Pa)$")
     ax.legend(loc="upper right")
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.
     canvas.draw()

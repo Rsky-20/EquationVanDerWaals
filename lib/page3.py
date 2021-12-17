@@ -47,6 +47,8 @@ def GazParfait(master):
     ax.set_xlabel(r"$V_m\; (m^3.mol^{-1})$")
     ax.text(7,9,u"Domaine physique")
     ax.legend(loc="upper left")
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
+
 
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.

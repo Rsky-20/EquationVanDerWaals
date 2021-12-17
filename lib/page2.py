@@ -52,6 +52,8 @@ def ForceInteraction(master):
     ax.legend(loc='upper right')
     ax.set_xlabel('$(r/r_0)$')
     ax.set_ylabel('$F/F_0$')
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
+
 
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.

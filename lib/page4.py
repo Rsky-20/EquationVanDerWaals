@@ -53,6 +53,7 @@ def VanDerWaals(master):
     ax.axvspan(-15,4,color='orange',alpha=0.3)
     ax.text(7.8,12,u'Domaine')
     ax.text(7.8,10.8,u'physique')
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
 
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.

@@ -11,11 +11,11 @@ This app is a simulation Application about the famous equation of Van Der Waals
 """
 
 Apropos = """
-- Version: 
-- Commit: 
-- Date: 
-- @uthor: Pierre VAUDRY ; Enora GUILLAUME ; Safa HERELLI ; Jessy JOSE
-- Python: 3.10
+Version: 0.06
+Commit: 8d7f385543319f9c1e60a2af9793a535ea9f245f
+Date: 20/12/2021
+@uthor: Pierre VAUDRY ; Enora GUILLAUME ; Safa HERELLI ; Jessy JOSE
+Python: 3.10
 
 """
 

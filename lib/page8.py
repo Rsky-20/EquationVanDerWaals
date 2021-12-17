@@ -60,6 +60,7 @@ def AmagatP(master):
     ax.axis([0,3*pow(10,7),0,9*pow(10,3)])
     ax.set_ylabel(r'$PV\;(Pa.m^3)$')
     ax.set_xlabel(r'$P\;(Pa)$')
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
     
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.

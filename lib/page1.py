@@ -71,6 +71,8 @@ def EnergieInteraction(master):
     ax.set_xlabel(r'$\frac{r}{r_0}$')
     ax.set_ylabel("Ep(r)/e")
     ax.legend(loc='upper right')
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
+
     #ax.title(r"Potentiel de Lennard-Jones en fonction de $\frac{r}{r_0}$")
     #ax.title("Potentiel de Lennard-Jones")
 

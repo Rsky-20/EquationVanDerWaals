@@ -46,6 +46,7 @@ def EquReduite(master):
     ax.set_ylabel(r'$P\;(Pa)$')
     ax.set_xlabel(r'$V_m\;(m^3.mol^{-1})$')
     ax.legend(loc="upper right",fontsize="small")
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
     
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.

@@ -52,7 +52,8 @@ def Pression_T(master):
     ax.set_ylabel(r"Pression (Pa)")
     ax.axis([200,1400,0,7*pow(10,7)])
     ax.legend(loc="upper left",fontsize="small")
-    
+    ax.grid(b=True, which='major', color='#666666', linestyle='-')
+
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.
     canvas.draw()
