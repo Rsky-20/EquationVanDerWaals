@@ -3,17 +3,6 @@ try:
 except:
     from distutils.core import setup
 
-
-
-setup(
-    name='TowelStuff',
-    version='0.1dev',
-    packages=['towelstuff',],
-    license='Creative Commons Attribution-Noncommercial-Share Alike license',
-    long_description=None,
-)
-
-
 setup(
     name='ThermoSim',
     version='0.6',
@@ -21,7 +10,7 @@ setup(
     author='Pierre Vaudry',
     author_email='pierrevaudry4@gmail.com',
     description='A tkinter GUI builder.',
-    long_description=open('README.txt').read(),
+    long_description=open('README.md').read(),
     url='https://github.com/Rsky-20/EquationVanDerWaals',
 
     packages=['tkinter','pillow','pyscreenshot','matplotlib','numpy'],
