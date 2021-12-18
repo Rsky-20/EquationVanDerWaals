@@ -1,0 +1,3 @@
+# requirements/prod.txt
+
+# Everything needed in production

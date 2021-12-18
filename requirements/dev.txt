@@ -1,0 +1,21 @@
+# requirements/dev.txt
+
+-r prod.txt
+
+# PEP8
+pylint==1.8.1
+
+#tkinter
+tkinter
+
+#pillow
+pillow
+
+#pyscreenshot
+pyscreenshot
+
+#matplotlib
+matplotlib
+
+#numpy
+numpy
