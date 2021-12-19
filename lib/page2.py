@@ -52,6 +52,7 @@ def ForceInteraction(master):
     ax.legend(loc='upper right')
     ax.set_xlabel('$(r/r_0)$')
     ax.set_ylabel('$F/F_0$')
+    ax.set_title(r"Forces d'interaction en fonction de $(r/r_0)$")
     ax.grid(b=True, which='major', color='#666666', linestyle='-')
 
 

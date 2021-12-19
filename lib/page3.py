@@ -45,6 +45,7 @@ def GazParfait(master):
     ax.axis([-20,20,-20,20])
     ax.set_ylabel('P (Pa)')
     ax.set_xlabel(r"$V_m\; (m^3.mol^{-1})$")
+    ax.set_title(r"Forces d'interaction en fonction de $(r/r_0)$")
     ax.text(7,9,u"Domaine physique")
     ax.legend(loc="upper left")
     ax.grid(b=True, which='major', color='#666666', linestyle='-')

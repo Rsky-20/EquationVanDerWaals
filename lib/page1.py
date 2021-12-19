@@ -73,8 +73,7 @@ def EnergieInteraction(master):
     ax.legend(loc='upper right')
     ax.grid(b=True, which='major', color='#666666', linestyle='-')
 
-    #ax.title(r"Potentiel de Lennard-Jones en fonction de $\frac{r}{r_0}$")
-    #ax.title("Potentiel de Lennard-Jones")
+    ax.set_title(r"Potentiel de Lennard-Jones en fonction de $\frac{r}{r_0}$")
 
     canvas = FigureCanvasTkAgg(fig, master=app)  # A tk.DrawingArea.
     canvas.draw()

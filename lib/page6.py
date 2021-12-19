@@ -52,6 +52,7 @@ def Pression_T(master):
     ax.set_ylabel(r"Pression (Pa)")
     ax.axis([200,1400,0,7*pow(10,7)])
     ax.legend(loc="upper left",fontsize="small")
+    ax.set_title("Représentation de la pression en fonction de la température \n pour le CO₂ en tant que gaz parfait et de Van Der Waals")
     ax.grid(b=True, which='major', color='#666666', linestyle='-')
 
 

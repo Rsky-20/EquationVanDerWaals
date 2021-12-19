@@ -48,6 +48,7 @@ def VanDerWaals(master):
     ax.axis([-15,15,-15,15])
     ax.set_ylabel(r"$P\;(Pa)$")
     ax.set_xlabel(r"$V_m\;(m^3.mol^{-1})$")
+    ax.set_title("Représentation de l'equation mathématique de Van der Waals")
     ax.legend(loc='upper left')
     ax.axhspan(-15,0,color='orange',alpha=0.3)
     ax.axvspan(-15,4,color='orange',alpha=0.3)
