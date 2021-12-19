@@ -29,7 +29,7 @@ from tkinter import *
 from tkinter.ttk import Combobox
 from tkinter import messagebox
 from PIL import Image, ImageTk
-import pyscreenshot as ImageGrab
+import pyscreenshot as ImageGrab #Test / Not working yet
 import lib.page1 as Ep
 import lib.page2 as Fp
 import lib.page3 as GP
@@ -62,13 +62,13 @@ class ToolBar:
         Args:
             master (class): tkinter parent page of main app
         """        
-        self.root = master
+        self.root = master # Parent window
         self.top_menu()
 
     def top_menu(self):
         """
         [summary]
-        generate toolbar on the screen
+        generate toolbar on the main screen
         """        
         
         menubar = Menu(self.root)
@@ -109,14 +109,14 @@ class ToolBar:
     def quit_app(self):
         """
         [summary]
-        a simple function to stop
+        a simple function to stop app / screen
         """        
         
         MessageBox = """
         Voulez-vous quittez l'application ?
         """
         resp = messagebox.askokcancel(
-            title="Quitter Lock'Auto", message=MessageBox)
+            title="Quitter ThermoSim", message=MessageBox)
         if resp:
             self.root.destroy()
         else:
@@ -140,7 +140,7 @@ class MainApp:
         [summary]
         initiate class
         """       
-        # Generate the main page with sitting
+        # Generate the main page with setting
         self.root = tk.Tk()
         self.root.wm_attributes('-transparentcolor', 'red')
         self.w = self.root.winfo_screenwidth()
@@ -166,7 +166,7 @@ class MainApp:
         
         self.banner = Frame(self.root, bg='#ffffff', cursor='circle')
         self.banner.place(y=0,x=0,relwidth=0.25, relheight=1)
-
+        # Icon of window
         self.root.iconbitmap('./img/icon.ico')
         self.widgets()
 
@@ -199,13 +199,13 @@ class MainApp:
                   bg="white").place( relx=0.1, rely=0.3, relheight=0.05,
                                     relwidth=0.8)
         tk.Button(self.banner, text="Amagat", command=lambda: Amag.Amagat(self.root),
-                  bg="white").place( relx=0.1, rely=0.3, relheight=0.05,
+                  bg="white").place( relx=0.1, rely=0.35, relheight=0.05,
                                     relwidth=0.8)          
         tk.Button(self.banner, text="Amagat P", command=lambda: AmagP.AmagatP(self.root),
-                  bg="white").place( relx=0.1, rely=0.35, relheight=0.05,
+                  bg="white").place( relx=0.1, rely=0.40, relheight=0.05,
                                     relwidth=0.8) 
         tk.Button(self.banner, text="Equation Reduite", command=lambda: EqR.EquReduite(self.root),
-                  bg="white").place( relx=0.1, rely=0.35, relheight=0.05,
+                  bg="white").place( relx=0.1, rely=0.45, relheight=0.05,
                                     relwidth=0.8) 
         
 

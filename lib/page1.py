@@ -9,21 +9,52 @@ from matplotlib.backends.backend_tkagg import (
 from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
 
-def EnergieReduiteRepulsive(R): 
+def EnergieReduiteRepulsive(R):
+    """[summary]
+    function for Van Der Waals equation
+
+    Args:
+        R ([type:var_float]): [description] 
+
+    Returns:
+        [type:self]: [description] 
+        retourne the Vand Der Waals equation
+    """    
     return (1 / R) ** 12
 
 def EnergieReduiteAttractive(R): 
+    """[summary]
+    function for Van Der Waals equation
+
+    Args:
+        R ([type:var_float]): [description]
+
+    Returns:
+        [type:self]: [description]
+        retourne the Vand Der Waals equation
+    """    
     return -2 * ((1 / R) ** 6)
 
 def EnergieInteractionReduiteTotale(R):
+    """[summary]
+    function for Van Der Waals equation
+
+    Args:
+        R ([type:var_float]): [description]
+
+    Returns:
+        [type:self]: [description]
+        retourne the Vand Der Waals equation
+    """    
     return (EnergieReduiteRepulsive(R) + EnergieReduiteAttractive(R))    
     
 
 def EnergieInteraction(master):
     """
     [Description]
+    main function to make the graphe of VDW equation
 
-    :param master: master se réfaire à la page parent
+    :param master: master is parent page
     :return:
     """
     app = tk.Toplevel(master)
@@ -45,6 +76,7 @@ def EnergieInteraction(master):
     y_EIRT = [] #Energie d'Interaction Reduite Totale
     y = []
 
+    #LOOP by for to make a matrice of value for y axis
     for j in range(len(x)):
         y.append(0)
         distIMR = x[j] #Distance Inter Moleculaire Reduite
@@ -55,7 +87,7 @@ def EnergieInteraction(master):
         EIRT = EnergieInteractionReduiteTotale(distIMR)
         y_EIRT.append(EIRT)
 
-
+    #Graphique part
     ax = fig.add_subplot()
     line, = ax.plot(x, y,color="black", linewidth=1, linestyle="-")
     line1, = ax.plot(x, y_ERR, linewidth=2.5, linestyle="-", label="Energie réduite de repulsion")
@@ -86,6 +118,6 @@ def EnergieInteraction(master):
         "key_press_event", lambda event: print(f"you pressed {event.key}"))
     canvas.mpl_connect("key_press_event", key_press_handler)
 
-    toolbar.pack(side=tk.BOTTOM, fill=tk.X)
-    canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+    toolbar.pack(side=tk.TOP, fill=tk.X)
+    canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=1)
 

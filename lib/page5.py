@@ -70,6 +70,6 @@ def Isotherme(master):
         "key_press_event", lambda event: print(f"you pressed {event.key}"))
     canvas.mpl_connect("key_press_event", key_press_handler)
 
-    toolbar.pack(side=tk.BOTTOM, fill=tk.X)
-    canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+    toolbar.pack(side=tk.TOP, fill=tk.X)
+    canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=1)
 

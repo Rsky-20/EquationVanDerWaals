@@ -10,12 +10,42 @@ from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
 import numpy as np
 
+
 def Fpi(r):
-        return (12*(1/r)**13 - 12*(1/r)**7)
+    """[summary]
+
+    Args:
+        r ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """ 
+     
+    return (12*(1/r)**13 - 12*(1/r)**7)
+    
 def Fea(r):
+    """[summary]
+
+    Args:
+        r ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """    
     return (-12*(1/r)**7)
+
+
 def Fer(r):
+    """[summary]
+
+    Args:
+        r ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """    
     return (12*(1/r)**13)
+
 
 def ForceInteraction(master):
     """
@@ -37,9 +67,9 @@ def ForceInteraction(master):
     fig = Figure(figsize=(5, 4), dpi=100)
 
     #x = [p/100.0 for p in range(50, 250, 1)]
-    x=np.arange(-20,20.1,0.0001) 
+    x=np.arange(-20,20.1,0.0001)  # make x axis by value with a step of 0.0001
 
-
+    #Graphique part
     ax = fig.add_subplot()
     ax.plot(x,Fpi(x),"g",label=r'$\frac{F}{F_0}(r/r_0)$')
     ax.axvline(x=0,color='black')
@@ -68,6 +98,6 @@ def ForceInteraction(master):
         "key_press_event", lambda event: print(f"you pressed {event.key}"))
     canvas.mpl_connect("key_press_event", key_press_handler)
 
-    toolbar.pack(side=tk.BOTTOM, fill=tk.X)
-    canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+    toolbar.pack(side=tk.TOP, fill=tk.X)
+    canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=1)
 
