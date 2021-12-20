@@ -84,14 +84,21 @@ class ToolBar:
         menu1.add_command(label="Quitter ", command=self.quit_app)
         menubar.add_cascade(label="Fichier", menu=menu1)
 
+        #Menubar not finished yet
         menu2 = Menu(menubar, tearoff=0)
-        menu2.add_command(label="Exercice 1",
+        menu2.add_command(label="Energie potentiel d'interaction",
                           command=lambda: None)
-        menu2.add_command(label="Exercice 2",
+        menu2.add_command(label="Force d'interaction",
                           command=lambda: None)
-        menu2.add_command(label="Exercice 3",
+        menu2.add_command(label="Equation d'état",
                           command=lambda: None)
-        menu2.add_command(label="Exercice 4",
+        menu2.add_command(label="Isotherme dans le diagramme de Clapeyron",
+                          command=lambda: None)
+        menu2.add_command(label="Isotherme dans le diagramme d'Amagat'",
+                          command=lambda: None)
+        menu2.add_command(label="Température de Mariotte",
+                          command=lambda: None)
+        menu2.add_command(label="Equation de VDW et changement de d'état",
                           command=lambda: None)
         
         menubar.add_cascade(label="Informations", menu=menu2)

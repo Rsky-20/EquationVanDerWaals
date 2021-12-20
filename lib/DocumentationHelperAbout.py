@@ -11,8 +11,8 @@ This app is a simulation Application about the famous equation of Van Der Waals
 """
 
 Apropos = """
-Version: 0.06
-Commit: 8d7f385543319f9c1e60a2af9793a535ea9f245f
+Version: 0.14
+Commit: d1f8c992adfe823beb553f37c867e6946d3e6a09
 Date: 20/12/2021
 @uthor: Pierre VAUDRY ; Enora GUILLAUME ; Safa HERELLI ; Jessy JOSE
 Python: 3.10
@@ -20,8 +20,7 @@ Python: 3.10
 """
 
 Help = """
-
-
+Please refer to README.md 
 
 """
 

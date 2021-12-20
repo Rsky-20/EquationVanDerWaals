@@ -1,10 +1,10 @@
 # EquationVanDerWaals
- Projet de modélisation et d'utilisation des équation de Van Der Waals
+ Projet to modelize equation of Van Der Waals 
 
 ### Prerequisites
 
 - python 3.8 or latest
-- module : tkinter, matplotlib, PIL
+- module : tkinter, matplotlib, PIL, scipy
 - basic notion with python and python execution
 
 ### Installation
@@ -32,17 +32,16 @@ _software, resources, language :_
 ## Versions
  
 _Version :_
-**Stable version :** 0.04
-**Latest version :** 0.04
-Liste des versions : [Click here](https://github.com/Rsky-20/EquationVanDerWaals/tags)
+**Stable version :** 0.14
+**Latest version :** 0.14
+Version list : [Click here](https://github.com/Rsky-20/EquationVanDerWaals/tags)
 
 
-## Auteurs
-Listez le(s) auteur(s) du projet ici !
+## Author
 * **Pierre Vaudry** _alias_ [@Rsky-20](https://github.com/outout14)
 
 
 ## License
 
-Ce projet est sous licence ``GPL`` - See [LICENSE.md](LICENSE.md) for more information
+Project on ``GPL`` License - See [LICENSE.md](LICENSE.md) for more information
 
