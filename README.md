@@ -39,6 +39,9 @@ Version list : [Click here](https://github.com/Rsky-20/EquationVanDerWaals/tags)
 
 ## Author
 * **Pierre Vaudry** _alias_ [@Rsky-20](https://github.com/outout14)
+* **Enora Guillaume**
+* **Jessy Jose**
+* **Safa Herelli**
 
 
 ## License
