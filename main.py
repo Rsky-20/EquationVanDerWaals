@@ -39,6 +39,9 @@ import lib.page6 as PT
 import lib.page7 as Amag
 import lib.page8 as AmagP
 import lib.page9 as EqR
+import lib.page9Bis as EqRBis
+import lib.page10 as MWR
+import lib.page11 as MW
 import lib.DocumentationHelperAbout as DHA
 
 # --------- Class and process --------- #
@@ -207,7 +210,16 @@ class MainApp:
         tk.Button(self.banner, text="Equation Reduite", command=lambda: EqR.EquReduite(self.root),
                   bg="white").place( relx=0.1, rely=0.45, relheight=0.05,
                                     relwidth=0.8) 
-        
+        tk.Button(self.banner, text="Equation Reduite Custom", command=lambda: EqRBis.EquReduite(self.root),
+                  bg="white").place( relx=0.1, rely=0.50, relheight=0.05,
+                                    relwidth=0.8) 
+        tk.Button(self.banner, text="Construction de Maxwell Réduit", command=lambda: MWR.ConstuctionMaxwell(self.root),
+                  bg="white").place( relx=0.1, rely=0.55, relheight=0.05,
+                                    relwidth=0.8)
+        tk.Button(self.banner, text="Construction de Maxwell", command=lambda: MW.ConstuctionMaxwell(self.root),
+                  bg="white").place( relx=0.1, rely=0.6, relheight=0.05,
+                                    relwidth=0.8)
+
 
 # ------ Run & Start server program ------ #
 
