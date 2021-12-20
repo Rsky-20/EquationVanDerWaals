@@ -32,22 +32,48 @@ def Pression_T(master):
 
     ax = fig.add_subplot()
 
-    T=np.arange(300,1301,10)
-    V=np.arange(2*pow(10,-4),pow(10,-3),2*pow(10,-4))
-    def VDW(V,T):
-        R=8.314472
-        a=363.7*pow(10,-3)
-        b=0.0427*pow(10,-3)
-        return (T*R/(V-b)-a/(V**2))
+    T = np.arange(300,1301,10)
+    V = np.arange(2*pow(10,-4),pow(10,-3),2*pow(10,-4))
+    
+    
+    def VDW(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = 8.314472
+        a = 363.7 * pow(10, -3)
+        b = 0.0427 * pow(10, -3)
+        return T * R / (V - b) - a / (V**2)
+    
+    
     def GP(V,T):
-        R=(8.314472)
-        return (T*R/V)
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = (8.314472)
+        return T * R / V
+    
     for i in range(0,len(V)):
         lab="V"+str(i+1)
         ax.plot(T,VDW(V[i],T),color='b',label=lab +'VDW')
+        
     for i in range(0,len(V)):
         lab="V"+str(i+1)
         ax.plot(T,GP(V[i],T),color='r',label=lab+'GP')
+        
+    # Graphe part
     ax.set_xlabel(r"Température (K)")
     ax.set_ylabel(r"Pression (Pa)")
     ax.axis([200,1400,0,7*pow(10,7)])

@@ -32,32 +32,81 @@ def AmagatP(master):
 
     ax = fig.add_subplot()
 
-    V=np.arange(0.05*pow(10,-3),0.1,pow(10,-6))
-    T=np.arange(300,1301,200)
-    PVm=np.arange(0,9001,1)
+    V = np.arange(0.05*pow(10, -3), 0.1, pow(10, -6))
+    T = np.arange(300, 1301, 200)
+    PVm = np.arange(0, 9001, 1)
     Pm=[]
-    a=363.7*pow(10,-3)
-    b=0.0427*pow(10,-3)
-    def VDW(V,T):
-        R=8.314472
-        return (T*R/(V-b)-a/(V**2))
-    def GP(V,T):
-        R=(8.314472)
-        return (T*R/V)
-    def GPAmagat(V,T):
-        R=8.314472
-        return (GP(V,T)*V)
-    def VDWAmagat(V,T):
-        return (VDW(V,T)*V)
-    for i in range(0,len(T)):
-        ax.plot(VDW(V,T[i]),VDWAmagat(V,T[i]),color='b')
-    for i in range(0,len(T)):
-        lab="T"+str(i+1)+"GP"
-        ax.plot(GP(V,T[i]),GPAmagat(V,T[i]),color='r')
+    a = 363.7*pow(10, -3)
+    b = 0.0427*pow(10, -3)
+    
+    
+    def VDW(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = 8.314472
+        return T * R / ( V - b ) - a / (V**2)
+    
+    
+    def GP(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = (8.314472)
+        return T * R/ V
+    
+    
+    def GPAmagat(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = 8.314472
+        return GP(V, T) * V
+    
+    
+    def VDWAmagat(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        return VDW(V, T) * V
+    
+    
+    for i in range(0, len(T)):
+        ax.plot(VDW(V, T[i]), VDWAmagat(V, T[i]), color='b')
+        
+    for i in range(0, len(T)):
+        lab="T" + str(i+1) + "GP"
+        ax.plot(GP(V, T[i]), GPAmagat(V, T[i]), color='r')
+        
     for i in range(len(PVm)):
-        Pm.append(-PVm[i]/2 * (PVm[i]/a - 1/b))
-    ax.plot(Pm,PVm,color='green')
-    ax.axis([0,3*pow(10,7),0,9*pow(10,3)])
+        Pm.append(-PVm[i] / 2 * (PVm[i] / a - 1 / b))
+        
+    ax.plot(Pm, PVm, color='green')
+    ax.axis([0, 3*pow(10, 7), 0,9*pow(10, 3)])
     ax.set_ylabel(r'$PV\;(Pa.m^3)$')
     ax.set_xlabel(r'$P\;(Pa)$')
     ax.set_title("Coordonnées d'Amagat : PV en fonction de P \n Parabole de Mariotte Gaz de Van Der Waals CO2")

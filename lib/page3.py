@@ -32,21 +32,32 @@ def GazParfait(master):
 
     ax = fig.add_subplot()
     
-    x=np.arange(-20,20.1,0.0001)
-    T=np.arange(0.5,3.6,0.5)
-    def GP(V,T):
-        R=(8.314472)
-        return (T*R/V)
-    for i in range(0,len(T)):
-        L="T"+str(i+1)+"(K)"
-        ax.plot(x,GP(x,T[i]),linewidth=1,label=L)
-    ax.axvline(x=0,color='black')
-    ax.axhline(y=0,color='black')
-    ax.axis([-20,20,-20,20])
+    x = np.arange(-20,20.1,0.0001)
+    T = np.arange(0.5,3.6,0.5)
+    def GP(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = (8.314472)
+        return T * R / V
+    
+    
+    for i in range(0, len(T)):
+        L = "T" + str(i+1) + "(K)"
+        ax.plot(x, GP(x, T[i]), linewidth=1, label=L)
+    ax.axvline(x=0, color='black')
+    ax.axhline(y=0, color='black')
+    ax.axis([-20, 20, -20, 20])
     ax.set_ylabel('P (Pa)')
     ax.set_xlabel(r"$V_m\; (m^3.mol^{-1})$")
     ax.set_title(r"Forces d'interaction en fonction de $(r/r_0)$")
-    ax.text(7,9,u"Domaine physique")
+    ax.text(7, 9, u"Domaine physique")
     ax.legend(loc="upper left")
     ax.grid(b=True, which='major', color='#666666', linestyle='-')
 

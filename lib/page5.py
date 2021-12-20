@@ -32,22 +32,49 @@ def Isotherme(master):
 
     ax = fig.add_subplot()
 
-    V=np.arange(0.5*pow(10,-4),pow(10,-3),2.5*pow(10,-5))
-    T_1=np.arange(300,1301,200)
-    def VDW(V,T):
-        R=8.314472
-        a=363.7*pow(10,-3)
-        b=0.0427*pow(10,-3)
-        return (T*R/(V-b)-a/(V**2))
-    def GP(V,T):
-        R=(8.314472)
-        return (T*R/V)
+    V = np.arange(0.5*pow(10, -4),pow(10, -3), 2.5*pow(10, -5))
+    T_1 = np.arange(300, 1301, 200)
+    
+    
+    def VDW(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = 8.314472
+        a = 363.7*pow(10, -3)
+        b=0.0427*pow(10, -3)
+        return T * R / (V - b) - a / (V**2)
+    
+    
+    def GP(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = (8.314472)
+        return T * R / V
+    
+    
     for i in range(0,len(T_1)):
         lab="T"+str(i+1)+"("+str(T_1[i])+"K)"
         ax.plot(V,VDW(V,T_1[i]),color='b',label=lab+'VDW')
+        
     for i in range(0,len(T_1)):
         lab="T"+str(i+1)+"("+str(T_1[i])+"K)"
         ax.plot(V,GP(V,T_1[i]),color='r',label=lab+'GP')
+        
+    #Graphe part
     ax.plot(pow(10,-4),0.725*pow(10,7),'g*',label="Point critique")
     ax.axvline(x=0,color='black')
     ax.axvline(x=4,color='black')

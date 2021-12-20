@@ -32,16 +32,30 @@ def VanDerWaals(master):
 
     ax = fig.add_subplot()
     
-    x=np.arange(-20,20.1,0.0001)
-    T=np.arange(0.5,3.6,0.5)
-    def VDW(V,T):
-        a=1
-        b=4
-        R=8.314472
-        return (T*R/(V-b) - a/(V**2))
+    x = np.arange(-20, 20.1, 0.0001)
+    T = np.arange(0.5, 3.6, 0.5)
+    
+    
+    def VDW(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        a = 1
+        b = 4
+        R = 8.314472
+        return T * R / (V - b) - a / (V**2)
+    
     for i in range(0,len(T)):
         L="T"+str(i+1)+"("+str(T[i])+"K)"
         ax.plot(x,VDW(x,T[i]),label=L)
+        
+    # Graphe parts
     ax.axvline(x=0,color='black')
     ax.axvline(x=4,color='black',linewidth=0.3)
     ax.axhline(y=0,color='black')

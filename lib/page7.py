@@ -32,28 +32,72 @@ def Amagat(master):
 
     ax = fig.add_subplot()
 
-    V=np.arange(0.05*pow(10,-3),0.1,pow(10,-6))
-    T=np.arange(300,1301,200)
-    def VDWCO_2(V,T):
-        R=8.314472
-        a=363.7*pow(10,-3)
-        b=0.0427*pow(10,-3)
-        return (T*R/(V-b)-a/(V**2))
-    def GP(V,T):
-        R=(8.314472)
-        return (T*R/V)
-    def GPAmagat(V,T):
-        R=8.314472
-        return (GP(V,T)*V)
-    def VDWCO_2Amagat(V,T):
-        return (VDWCO_2(V,T)*V)
-    for i in range(0,len(T)):
-        lab="T"+str(i+1)+"("+str(T[i])+"K) VDW"
-        ax.plot(VDWCO_2(V,T[i]),VDWCO_2Amagat(V,T[i]),color='b',label=lab)
-    for i in range(0,len(T)):
-        lab="T"+str(i+1)+"("+str(T[i])+"K) GP"
-        ax.plot(GP(V,T[i]),GPAmagat(V,T[i]),color='r',label=lab)
-    ax.axis([0,2.5*pow(10,7),0,9*pow(10,3)])
+    V = np.arange(0.05*pow(10, -3), 0.1,pow(10, -6))
+    T = np.arange(300, 1301, 200)
+    def VDWCO_2(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = (8.314472)
+        a = 363.7*pow(10, -3)
+        b = 0.0427*pow(10, -3)
+        return T * R / (V - b) - a / (V**2)
+    
+    
+    def GP(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = (8.314472)
+        return T * R / V
+    
+    
+    def GPAmagat(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        R = 8.314472
+        return (GP(V, T) * V)
+    
+    
+    def VDWCO_2Amagat(V, T):
+        """[summary]
+
+        Args:
+            V ([type]): [description]
+            T ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        return VDWCO_2(V, T) * V
+    
+    
+    for i in range(0, len(T)):
+        lab = "T" + str(i+1) + "(" + str(T[i]) + "K) VDW"
+        ax.plot(VDWCO_2(V, T[i]), VDWCO_2Amagat(V, T[i]), color='b', label=lab)
+    for i in range(0, len(T)):
+        lab="T" + str(i+1) + "(" + str(T[i]) + "K) GP"
+        ax.plot(GP(V, T[i]), GPAmagat(V,T[i]), color='r', label=lab)
+    ax.axis([0, 2.5*pow(10, 7), 0,9*pow(10, 3)])
     ax.set_ylabel(r'$PV\;(Pa.m^3)$')
     ax.set_xlabel(r'$P\;(Pa)$')
     ax.set_title("Coordonnées d'Amagat : PV en fonction de P")

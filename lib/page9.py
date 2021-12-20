@@ -32,17 +32,28 @@ def EquReduite(master):
 
     ax = fig.add_subplot()
 
-    T_r=np.arange(0.93,1.03,0.01)
-    V_r=np.arange(0.4,5,0.01)
-    def VDWR(V_R,T_r):
-        return (8*T_r)/(3*V_r-1) - (3/(V_r**2))
-    for i in range(0,len(T_r)):
-        lab="T"+str(i+1)+"("+str(T_r[i])+"K)"
-        ax.plot(V_r,VDWR(V_r,T_r[i]),label=lab)
-    ax.plot(1,1,'g*',label="Point critique")
-    ax.axvline(x=0,color='black')
-    ax.axhline(y=0,color='black')
-    ax.axis([0.4,2,0.5,1.4])
+    T_r=np.arange(0.93, 1.03, 0.01)
+    V_r=np.arange(0.4, 5, 0.01)
+    
+    def VDWR(V_R, T_r):
+        """[summary]
+
+        Args:
+            V_R ([type]): [description]
+            T_r ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """        
+        return (8* T_r) / (3 * V_r -1) - (3 / (V_r**2))
+    
+    for i in range(0, len(T_r)):
+        lab="T" + str(i+1) + "(" + str(T_r[i]) + "K)"
+        ax.plot(V_r, VDWR(V_r, T_r[i]), label=lab)
+    ax.plot(1, 1, 'g*', label="Point critique")
+    ax.axvline(x=0, color='black')
+    ax.axhline(y=0, color='black')
+    ax.axis([0.4, 2, 0.5, 1.4])
     ax.set_ylabel(r'$P\;(Pa)$')
     ax.set_xlabel(r'$V_m\;(m^3.mol^{-1})$')
     ax.legend(loc="upper right",fontsize="small")
