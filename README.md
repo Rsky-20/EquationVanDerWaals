@@ -4,7 +4,7 @@
 ### Prerequisites
 
 - python 3.8 or latest
-- module : tkinter, matplotlib, PIL, scipy
+- module : tkinter, matplotlib, PIL, scipy, numpy
 - basic notion with python and python execution
 
 ### Installation
